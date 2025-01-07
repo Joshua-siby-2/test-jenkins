@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git credentialsId: env.GIT_CREDENTIALS_ID, url: 'https://github.com/Joshua-siby-2/test-jenkins.git'
+                git credentialsId: env.GIT_CREDENTIALS_ID, url: 'https://github.com/Joshua-siby-2/test-jenkins.git', branch: 'main'
             }
         }
 
