@@ -1,6 +1,10 @@
 pipeline {
     agent any  // Use any available agent (in this case, your Windows machine)
 
+	 tools {
+        git 'Git 2.39.5'  // Specify the name of the Git tool as configured in Jenkins
+    }
+	
     environment {
         DOCKER_IMAGE = 'joshuasiby/test-jenkins-project'
         DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
