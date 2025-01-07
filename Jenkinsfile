@@ -1,6 +1,10 @@
 pipeline {
     agent any  // Use any available agent (in this case, your Windows machine)
 	
+	tools {
+        maven 'Maven 3.9.8'  // Replace with the name of your Maven tool configuration in Jenkins
+    }
+	
     environment {
         DOCKER_IMAGE = 'joshuasiby/test-jenkins-project'
         DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
