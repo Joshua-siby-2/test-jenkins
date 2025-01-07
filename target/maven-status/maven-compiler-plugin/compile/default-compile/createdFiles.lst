@@ -1,0 +1,3 @@
+app\synapse\webhook\service\WebhookServiceImpl.class
+app\synapse\webhook\controller\DynamicWebhookController.class
+app\synapse\webhook\WebhookApplication.class
