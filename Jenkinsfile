@@ -17,13 +17,13 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Run JUnit Tests') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
