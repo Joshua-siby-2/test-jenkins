@@ -17,20 +17,20 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage('Run JUnit Tests') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ."
+                    bat "docker build -t ${DOCKER_IMAGE}:${BUILD_NUMBER} ."
                 }
             }
         }
@@ -39,7 +39,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', env.DOCKER_CREDENTIALS_ID) {
-                        sh "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"
+                        bat "docker push ${DOCKER_IMAGE}:${BUILD_NUMBER}"
                     }
                 }
             }
