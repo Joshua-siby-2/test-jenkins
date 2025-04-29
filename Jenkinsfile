@@ -56,7 +56,7 @@ pipeline {
                     sh '''
                         docker stop java-app || true
                         docker rm java-app || true
-                        docker run -d -p 8081:8080 --name java-app ${DOCKER_IMAGE}:${BUILD_NUMBER}
+                        docker run -d -p 8081:8081 --name java-app ${DOCKER_IMAGE}:${BUILD_NUMBER}
                     '''
                 }
             }
