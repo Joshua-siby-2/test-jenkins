@@ -16,12 +16,14 @@ pipeline {
 
         stage('Build and Test') {
             steps {
+			    chmod +x mvnw
                 sh './mvnw clean package' // or 'mvn clean package' if wrapper not used
             }
         }
 
         stage('Run JUnit Tests') {
             steps {
+			    chmod +x mvnw
                 sh './mvnw test'
             }
         }
