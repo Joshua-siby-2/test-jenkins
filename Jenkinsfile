@@ -16,15 +16,19 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-			    chmod +x mvnw
-                sh './mvnw clean package' // or 'mvn clean package' if wrapper not used
+                sh '''
+                    chmod +x mvnw
+                    ./mvnw clean package
+                '''
             }
         }
 
         stage('Run JUnit Tests') {
             steps {
-			    chmod +x mvnw
-                sh './mvnw test'
+                sh '''
+                    chmod +x mvnw
+                    ./mvnw test
+                '''
             }
         }
 
@@ -49,11 +53,11 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 script {
-                    sh """
+                    sh '''
                         docker stop java-app || true
                         docker rm java-app || true
                         docker run -d -p 8081:8080 --name java-app ${DOCKER_IMAGE}:${BUILD_NUMBER}
-                    """
+                    '''
                 }
             }
         }
